@@ -1,0 +1,15 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+    <div class="text-center">
+        <h0 class="display-4">Norfors Status Slagge</h0>
+        <br />
+        <br />
+        <p>Sidst opdateret : <b>@ViewData["theDate"] @ViewData["theTime"]</b></p>
+        <br />
+        <p>Antal fulde containere  : <b>@ViewData["theContainerFulde"]</b></p>
+        <p>Antal tommer containere : <b>@ViewData["theContainerTomme"]</b></p>
+    </div>
