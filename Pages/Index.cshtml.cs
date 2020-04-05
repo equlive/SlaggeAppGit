@@ -23,10 +23,18 @@ namespace SlaggeApp.Pages
 
         public void OnGet()
         {
+            var myContainerOffset = 10;
+
             using (var webClient = new WebClient())
             {
                 String rawJSON = webClient.DownloadString("http://slaggestatus.norfors.dk/myContainerData.json");
                 mySlaggeStatus = JsonConvert.DeserializeObject<SlaggeStatus>(rawJSON);
+            }
+
+            int myCounter = Int32.Parse(mySlaggeStatus.Containerempty);
+            if (myCounter > myContainerOffset)
+            {
+                mySlaggeStatus.Containerempty = (myCounter - myContainerOffset).ToString();
             }
 
             ViewData["theDate"] = mySlaggeStatus.Mydate;
